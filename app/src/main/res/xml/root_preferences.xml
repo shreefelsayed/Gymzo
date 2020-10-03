@@ -1,0 +1,44 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <PreferenceCategory
+        android:layout_width="match_parent"
+        app:title="My Account">
+        <Preference
+            android:id="@+id/txtAccountInfo"
+            app:key="accountInfo"
+            app:title="@string/str_account_info" />
+
+        <Preference
+            android:id="@+id/txtChangePass"
+            app:key="changePass"
+            app:title="@string/str_change_pass" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="">
+        <SwitchPreference
+            android:id="@+id/switchNoti"
+            android:switchTextOn="@string/str_noti_on"
+            android:title="@string/str_noti"
+            app:key="notifications"
+            app:switchTextOff="@string/str_noti_off"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="">
+        <DropDownPreference
+            android:id="@+id/drpLanguage"
+            android:summary=""
+            android:title="@string/str_language"
+            app:key="language"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="">
+        <Preference
+            android:id="@+id/txtLogout"
+            android:title="@string/str_logout"
+            app:key="logout"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

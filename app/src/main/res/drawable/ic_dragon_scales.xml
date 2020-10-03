@@ -1,0 +1,102 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="1000dp"
+    android:viewportWidth="100"
+    android:viewportHeight="1000">
+  <path
+      android:pathData="M0,0h100v1000h-100z"
+      android:fillColor="#330055"/>
+  <path
+      android:pathData="M50,0m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#330055"/>
+  <path
+      android:pathData="M0,50m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#3a015d"/>
+  <path
+      android:pathData="M100,50m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#3a015d"/>
+  <path
+      android:pathData="M50,100m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#410165"/>
+  <path
+      android:pathData="M0,150m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#48026e"/>
+  <path
+      android:pathData="M100,150m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#48026e"/>
+  <path
+      android:pathData="M50,200m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#500376"/>
+  <path
+      android:pathData="M0,250m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#57047e"/>
+  <path
+      android:pathData="M100,250m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#57047e"/>
+  <path
+      android:pathData="M50,300m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#5f0587"/>
+  <path
+      android:pathData="M0,350m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#67068f"/>
+  <path
+      android:pathData="M100,350m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#67068f"/>
+  <path
+      android:pathData="M50,400m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#6f0798"/>
+  <path
+      android:pathData="M0,450m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#7707a0"/>
+  <path
+      android:pathData="M100,450m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#7707a0"/>
+  <path
+      android:pathData="M50,500m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#8008a9"/>
+  <path
+      android:pathData="M0,550m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#8909b1"/>
+  <path
+      android:pathData="M100,550m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#8909b1"/>
+  <path
+      android:pathData="M50,600m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#9109ba"/>
+  <path
+      android:pathData="M0,650m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#9a09c3"/>
+  <path
+      android:pathData="M100,650m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#9a09c3"/>
+  <path
+      android:pathData="M50,700m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#a309cb"/>
+  <path
+      android:pathData="M0,750m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#ad09d4"/>
+  <path
+      android:pathData="M100,750m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#ad09d4"/>
+  <path
+      android:pathData="M50,800m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#b608dc"/>
+  <path
+      android:pathData="M0,850m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#c007e5"/>
+  <path
+      android:pathData="M100,850m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#c007e5"/>
+  <path
+      android:pathData="M50,900m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#c905ee"/>
+  <path
+      android:pathData="M0,950m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#d303f6"/>
+  <path
+      android:pathData="M100,950m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#d303f6"/>
+  <path
+      android:pathData="M50,1000m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+      android:fillColor="#D0F"/>
+</vector>

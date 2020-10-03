@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.armjld.gymzo">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:configChanges="orientation|screenSize"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="LockedOrientationActivity">
+        <activity android:name=".user.main.GymProfile"></activity>
+        <activity android:name=".user.main.UserQR" />
+        <activity android:name=".firstrun.ChooseLanguage" />
+        <activity android:name=".firstrun.IntroFirstUse" />
+        <activity android:name=".admin.adminReports" />
+        <activity android:name=".admin.adminAddGym" />
+        <activity android:name=".gym.settings.gymFeedback" />
+        <activity android:name=".gym.settings.gymInfoSettings" />
+        <activity android:name=".user.settings.userFeedback" />
+        <activity android:name=".gym.gymReports" />
+        <activity android:name=".user.settings.userSupscription" />
+        <activity android:name=".user.settings.userPassSettings" />
+        <activity android:name=".user.settings.userInfoSettings" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".user.main.GymsMap"
+            android:label="@string/title_activity_gyms_map" />
+        <activity android:name=".gym.GymMain" />
+        <activity android:name=".ForgetPass" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".login.SignIn" />
+        <activity android:name=".user.main.MainActivity" />
+        <activity android:name=".StartUp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "162441933319",
+    "firebase_url": "https://gymzo-16f7e.firebaseio.com",
+    "project_id": "gymzo-16f7e",
+    "storage_bucket": "gymzo-16f7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162441933319:android:5449bf608bf39e09b830a2",
+        "android_client_info": {
+          "package_name": "com.armjld.gymzo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162441933319-0td4j0ibm5ds2l73hrq1lendoq29okha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.armjld.gymzo",
+            "certificate_hash": "6d7d53ab7d78ccca3579b0cd0c46a182215569e7"
+          }
+        },
+        {
+          "client_id": "162441933319-qrtpl84a5gs34qe1j4bnii446l0ak4jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZxOYUOh8XdmCw_yLm5tWEKGySatXGR98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162441933319-qrtpl84a5gs34qe1j4bnii446l0ak4jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

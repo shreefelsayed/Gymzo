@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Gymzo</string>
+    <string name="title_activity_gyms_map" translatable="false">Map</string>
+    <string name="facebook_app_id" translatable="false">375272856850647</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb375272856850647</string>
+    <string name="hello_blank_fragment" translatable="false">Heuy</string>
+
+    // -------- Login -------------------- //
+    <string name="str_login">Login</string>
+    <string name="str_email">Email</string>
+    <string name="str_google">Continue With Google</string>
+    <string name="str_facebook">Continue With Facebook</string>
+    <string name="str_signup">Sign Up</string>
+    <string name="str_password">Password</string>
+    <string name="str_Login_title">Login or Create a New Account</string>
+    <string name="str_new_account">Create a New Account</string>
+    //Toasts
+    <string name="str_wrong_pass">Wrong Credential</string>
+    <string name="str_face_connect">Connected to Facebook Successfully</string>
+    <string name="str_face_Failed">Failed to Connected to Facebook</string>
+    <string name="str_press_again">Press again to Exit</string>
+
+    // ----------------------- Sign Up -------------------- //
+    <string name="str_first_name">First Name</string>
+    <string name="str_last_name">Last Name</string>
+    <string name="str_phone">Phone Number</string>
+    <string name="str_create_password">New Password</string>
+    <string name="str_repeat_pass">Re-Type Password</string>
+    <string name="str_pass_6">Password must be at least 6 charcters.</string>
+    <string name="str_privacy">By creating a new account, i approve of all the terms and conditions.</string>
+    <string name="str_signup_toolbar">Create New Account</string>
+    <string name="str_phone_exist">Phone Number Already Exist</string>
+    <string name="str_wrong_otp">The OTP Code is invalid</string>
+    <string name="str_wrong_phone">Check the Phone Number</string>
+    <string name="str_code_sent">OTP Sent to your Number</string>
+    <string name="str_account_created">Account Created Successfully</string>
+    <string name="str_error">Something Went Wrong.</string>
+    <string name="str_select_gender">Select Gender</string>
+    <string name="str_checking_code">Check the OTP ..</string>
+    <string name="str_sending_code">Sending Code ..</string>
+    <string name="str_check_phone">Checking your phone number ..</string>
+    // ----------------------- User Nav Menu --------------------- //
+    <string name="str__gyms">Gyms</string>
+    <string name="str_profile">Profile</string>
+    <string name="str_settings">Settings</string>
+
+    // --------------------- Settings ---------------------------- //
+    <string name="str_account_info">Account Info</string>
+    <string name="str_change_pass">Change Password</string>
+    <string name="str_noti_on">Notification is On</string>
+    <string name="str_noti_off">Notiifications are Off</string>
+    <string name="str_noti">Notifications</string>
+    <string name="str_language">Select Language</string>
+    <string name="str_logout">Log Out</string>
+    <string name="str_account_info_title">Account Info</string>
+    <string name="str_app_setting">App Settings</string>
+    <string name="str_contact">Contact Us</string>
+    <string name="str_terms">Terms and Conditions</string>
+    <string name="str_privacy_policy">Privacy and Policies</string>
+    <string name="str_help">Help</string>
+
+    // ---------------- QR Code ---------------------- //
+    <string name="str_qrCode">QR Code</string>
+    <string name="str_birthday">Age</string>
+    <string name="str_gender">Gender</string>
+    <string name="str_edit_info">Edit My Info</string>
+    <string name="str_insert_code">Type the OTP that has been sent to your number</string>
+    <string name="str_female">Female</string>
+    <string name="str_male">Male</string>
+
+    // --------------- Change Info ------------------ //
+    <string name="str_info_changed">Your info has been changed Succefully.</string>
+    <string name="str_uploading">Uploading your new Picture ..</string>
+    <string name="str_old_pass">Current Password</string>
+    <string name="str_new_pass">New Password</string>
+    <string name="str_next">Next</string>
+    <string name="str_qr_desc">Make the Gym Trainer scan your QR Code, so you can attend your class at the GYM.</string>
+
+
+</resources>
