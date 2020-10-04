@@ -37,12 +37,6 @@ public class userSettings extends Fragment {
     Slider distanceSlider;
 
     public userSettings() { }
-    public static userSettings newInstance(String param1, String param2) {
-        userSettings fragment = new userSettings();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +67,7 @@ public class userSettings extends Fragment {
         txtEmail.setText(UserInFormation.getEmail());
         Picasso.get().load(Uri.parse(UserInFormation.getUserURL())).into(imgPPP);
         distanceSlider.setValue(Float.parseFloat(UserInFormation.getGymdistance()));
-        txtDistance.setText(UserInFormation.getGymdistance() + " KM.");
+        txtDistance.setText(getResources().getString(R.string.str_max_distance) + " " + UserInFormation.getGymdistance() + " " + getResources().getString(R.string.str_km));
 
 
         btnAccountInfo.setOnClickListener(v -> {
@@ -113,7 +107,7 @@ public class userSettings extends Fragment {
             public void onStopTrackingTouch(@NonNull Slider slider) {
                 uDatabase.child(UserInFormation.getId()).child("gymdistance").setValue(slider.getValue());
                 UserInFormation.setGymdistance(String.valueOf(slider.getValue()));
-                txtDistance.setText(slider.getValue() + " KM.");
+                txtDistance.setText(getResources().getString(R.string.str_max_distance) + " " + slider.getValue() + " " + getResources().getString(R.string.str_km));
             }
         });
 

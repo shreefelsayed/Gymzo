@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Gyms extends Fragment {
-    ImageView btnMap;
+    ImageView btnMap,btnFavorites;
     static TextView txtNone;
     DatabaseReference gymDatabase;
     static RecyclerView recyclerGym;
@@ -53,16 +53,22 @@ public class Gyms extends Fragment {
         btnMap = view.findViewById(R.id.btnMap);
         recyclerGym = view.findViewById(R.id.recyclerGym);
         refresh = view.findViewById(R.id.refresh);
+        btnFavorites =view.findViewById(R.id.btnFavorites);
+
+        btnFavorites.setOnClickListener(v-> startActivity(new Intent(getActivity(), UserFavorites.class)));
+
         recyclerGym.setHasFixedSize(true);
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         recyclerGym.setLayoutManager(layoutManager);
+        recyclerGym.setAdapter(null);
+
         txtNone = view.findViewById(R.id.txtNone);
         Button btnPay = view.findViewById(R.id.btnPay);
 
         TextView tbTitle = view.findViewById(R.id.toolbar_title);
-        tbTitle.setText("Available Gyms");
+        tbTitle.setText(R.string.str_available_gyms);
 
         btnMap.setOnClickListener(v-> {
             startActivity(new Intent(getActivity(), GymsMap.class));
@@ -74,7 +80,6 @@ public class Gyms extends Fragment {
             GymsArea.getGyms(getActivity());
             refresh.setRefreshing(false);
         });
-
 
         return view;
     }

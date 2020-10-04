@@ -64,7 +64,7 @@ public class GymsArea implements GoogleApiClient.ConnectionCallbacks, GoogleApiC
                         double distanceMeter = currentLocation.distanceTo(gymLocation);
 
                         Log.i(TAG, "Got it : " + gData.getGid());
-                        if((distanceMeter / 1000) <= distanceKilo) {
+                        if(((distanceMeter / 1000) <= distanceKilo) && gData.getGender().equals(UserInFormation.getGender()) || gData.getGender().equals("both")) {
                             count++;
                             gData.setDistance((distanceMeter / 1000));
                             gymsList.add(gData);

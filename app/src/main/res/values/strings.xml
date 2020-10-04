@@ -75,6 +75,11 @@
     <string name="str_new_pass">New Password</string>
     <string name="str_next">Next</string>
     <string name="str_qr_desc">Make the Gym Trainer scan your QR Code, so you can attend your class at the GYM.</string>
+    <string name="str_favorites">Favorites</string>
+    <string name="str_comments">Comments</string>
+    <string name="str_available_gyms">Available Gyms</string>
+    <string name="str_km">KM.</string>
+    <string name="str_max_distance">Maximum Gym Distance</string>
 
 
 </resources>

@@ -13,10 +13,11 @@
         android:id="@+id/toolbar_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:layout_gravity="left"
         android:layout_marginStart="70dp"
-        android:text="Title"
+        android:layoutDirection="ltr"
         android:textColor="@color/colorAccent"
+        android:textDirection="ltr"
         android:textSize="18sp"
         android:textStyle="bold" />
 

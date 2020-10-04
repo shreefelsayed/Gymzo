@@ -1,5 +1,6 @@
 package com.armjld.gymzo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,15 +15,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.armjld.gymzo.gym.gymData;
+import com.armjld.gymzo.user.FavoritesManager;
 import com.armjld.gymzo.user.main.GymProfile;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class gymsAdapter extends RecyclerView.Adapter<gymsAdapter.MyViewHolder> {
-    Context mContext;
+    static Context mContext;
     ArrayList<gymData> gymsList;
+    static FavoritesManager favMang = new FavoritesManager();
 
     public gymsAdapter(Context mContext, ArrayList<gymData> gymsList) {
         this.mContext = mContext;
@@ -37,17 +42,37 @@ public class gymsAdapter extends RecyclerView.Adapter<gymsAdapter.MyViewHolder> 
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(@NonNull gymsAdapter.MyViewHolder holder, int position) {
         gymData gDate = gymsList.get(position);
         holder.setMainDate(gDate.getName(), gDate.getAddress(), gDate.getGov() + ", " + gDate.getCity(), gDate.getDistance(), gDate.getType());
         holder.setRating(gDate.getRate());
         holder.setBackGround(gDate.getPhoto());
+        holder.setFav(gDate.getGid());
 
         holder.view.setOnClickListener(v-> {
             GymProfile.gData = gDate;
             mContext.startActivity(new Intent(mContext, GymProfile.class));
         });
+
+        holder.btnFav.setOnClickListener(v-> {
+            if(isFav(gDate.getGid())) {
+                favMang.remove(gDate.getGid());
+                holder.btnFav.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_baseline_star_border_24));
+
+            } else {
+                favMang.addGym(gDate.getGid());
+                holder.btnFav.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_star_gold));
+            }
+        });
+    }
+
+    private boolean isFav(String gid) {
+        if(favMang.check(gid)) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -84,7 +109,9 @@ public class gymsAdapter extends RecyclerView.Adapter<gymsAdapter.MyViewHolder> 
             txtTitle.setText(name);
             txtAddress.setText(address);
             txtCity.setText(city);
-            DecimalFormat decimalFormat = new DecimalFormat("#.#");
+            NumberFormat nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
+            DecimalFormat decimalFormat = (DecimalFormat) nf;
+            decimalFormat.applyPattern("#.#");
             float twoDigitsF = Float.valueOf(decimalFormat.format(distance));
             txtDistance.setText(twoDigitsF + " km away.");
 
@@ -96,7 +123,6 @@ public class gymsAdapter extends RecyclerView.Adapter<gymsAdapter.MyViewHolder> 
                 imgBadge.setVisibility(View.VISIBLE);
             } else {
                 imgBadge.setVisibility(View.GONE);
-
             }
         }
 
@@ -106,6 +132,15 @@ public class gymsAdapter extends RecyclerView.Adapter<gymsAdapter.MyViewHolder> 
 
         public void setBackGround(String photo) {
             Picasso.get().load(Uri.parse(photo)).into(imgGymFirst);
+        }
+
+        @SuppressLint("UseCompatLoadingForDrawables")
+        public void setFav(String gid) {
+            if(favMang.check(gid)) {
+                btnFav.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_star_gold));
+            } else {
+                btnFav.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_baseline_star_border_24));
+            }
         }
     }
 }

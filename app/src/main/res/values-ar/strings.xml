@@ -60,4 +60,9 @@
     <string name="str_checking_code">جاري التأكد من الرمز ..</string>
     <string name="str_next">التالي</string>
     <string name="str_qr_desc">كود المستخدم الخاص بك, يمكن الكابتن من تسجيل حضورك في الصالة الخاصه به.</string>
+    <string name="str_comments">التعليقات</string>
+    <string name="str_favorites">المفضلة</string>
+    <string name="str_available_gyms">الصالات الرياضية</string>
+    <string name="str_km">كم.</string>
+    <string name="str_max_distance">ابعد مسافة للصالات الرياضية</string>
 </resources>

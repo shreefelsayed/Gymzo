@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="LockedOrientationActivity">
-        <activity android:name=".user.main.GymProfile"></activity>
+        <activity android:name=".user.main.UserFavorites"></activity>
+        <activity android:name=".user.main.GymProfile" />
         <activity android:name=".user.main.UserQR" />
         <activity android:name=".firstrun.ChooseLanguage" />
         <activity android:name=".firstrun.IntroFirstUse" />

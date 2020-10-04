@@ -13,12 +13,29 @@ public class gymData {
     private String photo;
     private String type;
     private String classes;
+    private String favcount = "0";
+    private double distance = 0;
+
+    public String getFavcount() {
+        return favcount;
+    }
+
+    public void setFavcount(String favcount) {
+        this.favcount = favcount;
+    }
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    private String gender;
 
     public double getDistance() {
         return distance;
     }
-
-    private double distance = 0;
 
     public String getGid() {
         return gid;
@@ -114,7 +131,7 @@ public class gymData {
 
     public gymData(){ }
 
-    public gymData(String gid, String name, String _long, String lat, String address, String gov, String city, String rate, String photo, String type, String classes) {
+    public gymData(String gid, String name, String _long, String lat, String address, String gov, String city, String rate, String photo, String type, String classes, String gender, String favcount) {
         this.gid = gid;
         this.name = name;
         this._long = _long;
@@ -124,6 +141,8 @@ public class gymData {
         this.city = city;
         this.rate = rate;
         this.photo = photo;
+        this.gender = gender;
+        this.favcount = favcount;
     }
 
 

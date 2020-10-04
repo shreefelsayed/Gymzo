@@ -138,7 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
-        android:text="Maximum Gym Distance"
+        android:text="@string/str_max_distance"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 

@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.armjld.gymzo.gym.GymsArea;
+import com.armjld.gymzo.user.FavoritesManager;
 import com.armjld.gymzo.user.main.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -47,6 +48,9 @@ public class LoginManager {
                     UserInFormation.setSupType(Objects.requireNonNull(snapshot.child("supType").getValue()).toString());
                     UserInFormation.setSupDate(Objects.requireNonNull(snapshot.child("supDate").getValue()).toString());
                     UserInFormation.setRemainClasses(Objects.requireNonNull(snapshot.child("remainClasses").getValue()).toString());
+
+                    FavoritesManager favMang = new FavoritesManager();
+                    favMang.importFav();
 
                     if(snapshot.child("gymdistance").exists()) {
                         UserInFormation.setGymdistance(Objects.requireNonNull(snapshot.child("gymdistance").getValue()).toString());
