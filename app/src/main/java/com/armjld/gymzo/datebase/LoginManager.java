@@ -1,4 +1,4 @@
-package com.armjld.gymzo.login;
+package com.armjld.gymzo.datebase;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,8 +8,9 @@ import android.content.pm.PackageManager;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 
-import com.armjld.gymzo.gym.GymsArea;
-import com.armjld.gymzo.user.FavoritesManager;
+import com.armjld.gymzo.data.UserInFormation;
+import com.armjld.gymzo.datebase.FavoritesManager;
+import com.armjld.gymzo.login.SignIn;
 import com.armjld.gymzo.user.main.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -49,9 +50,6 @@ public class LoginManager {
                     UserInFormation.setSupDate(Objects.requireNonNull(snapshot.child("supDate").getValue()).toString());
                     UserInFormation.setRemainClasses(Objects.requireNonNull(snapshot.child("remainClasses").getValue()).toString());
 
-                    FavoritesManager favMang = new FavoritesManager();
-                    favMang.importFav();
-
                     if(snapshot.child("gymdistance").exists()) {
                         UserInFormation.setGymdistance(Objects.requireNonNull(snapshot.child("gymdistance").getValue()).toString());
                     }
@@ -66,6 +64,19 @@ public class LoginManager {
 
                     if(snapshot.child("recivenoti").exists()) {
                         UserInFormation.setRecivenoti(Objects.requireNonNull(snapshot.child("recivenoti").getValue()).toString());
+                    }
+
+                    if(snapshot.child("classes").exists()) {
+                        for(DataSnapshot ds : snapshot.child("classes").getChildren()) {
+                            UserInFormation.getClasses().add(ds.getValue().toString());
+                        }
+                    }
+
+                    if(snapshot.child("favorites").exists()) {
+                        for(DataSnapshot ds : snapshot.child("favorites").getChildren()) {
+                            FavoritesManager _fav = new FavoritesManager();
+                            _fav.add(ds.getValue().toString());
+                        }
                     }
 
                     dataset = true;

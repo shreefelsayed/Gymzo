@@ -1,7 +1,6 @@
 package com.armjld.gymzo.user.main;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,19 +9,17 @@ import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.armjld.gymzo.R;
-import com.armjld.gymzo.RatingAdapter;
-import com.armjld.gymzo.RatingData;
+import com.armjld.gymzo.adapters.RatingAdapter;
+import com.armjld.gymzo.data.RatingData;
 import com.armjld.gymzo.SliderAdapterExample;
-import com.armjld.gymzo.gym.gymData;
+import com.armjld.gymzo.data.gymData;
 import com.armjld.gymzo.language.BaseActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +31,6 @@ import com.smarteist.autoimageslider.SliderView;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 

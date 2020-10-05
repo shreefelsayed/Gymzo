@@ -13,7 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 
-import com.armjld.gymzo.login.UserInFormation;
+import com.armjld.gymzo.data.gymData;
+import com.armjld.gymzo.data.UserInFormation;
 import com.armjld.gymzo.user.main.Gyms;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;

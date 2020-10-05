@@ -1,7 +1,5 @@
 package com.armjld.gymzo.user.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,7 +8,7 @@ import android.widget.TextView;
 
 import com.armjld.gymzo.R;
 import com.armjld.gymzo.language.BaseActivity;
-import com.armjld.gymzo.login.UserInFormation;
+import com.armjld.gymzo.data.UserInFormation;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;

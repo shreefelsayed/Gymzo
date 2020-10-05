@@ -1,7 +1,5 @@
 package com.armjld.gymzo.user.settings;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,7 +12,7 @@ import android.widget.Toast;
 
 import com.armjld.gymzo.R;
 import com.armjld.gymzo.language.BaseActivity;
-import com.armjld.gymzo.login.UserInFormation;
+import com.armjld.gymzo.data.UserInFormation;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;

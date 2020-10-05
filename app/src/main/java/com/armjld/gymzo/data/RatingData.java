@@ -1,4 +1,4 @@
-package com.armjld.gymzo;
+package com.armjld.gymzo.data;
 
 public class RatingData {
     String comment;
@@ -8,15 +8,18 @@ public class RatingData {
     String rating;
     String ppurl;
 
+    String classid;
+
     public RatingData() {}
 
-    public RatingData(String comment, String uname, String uid, String timestamp, String rating, String ppurl) {
+    public RatingData(String comment, String uname, String uid, String timestamp, String rating, String ppurl, String classid) {
         this.comment = comment;
         this.uname = uname;
         this.uid = uid;
         this.timestamp = timestamp;
         this.rating = rating;
         this.ppurl = ppurl;
+        this.classid = classid;
     }
 
     public String getComment() {
@@ -65,5 +68,13 @@ public class RatingData {
 
     public void setPpurl(String ppurl) {
         this.ppurl = ppurl;
+    }
+
+    public String getClassid() {
+        return classid;
+    }
+
+    public void setClassid(String classid) {
+        this.classid = classid;
     }
 }

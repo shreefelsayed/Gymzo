@@ -80,6 +80,7 @@
     <string name="str_available_gyms">Available Gyms</string>
     <string name="str_km">KM.</string>
     <string name="str_max_distance">Maximum Gym Distance</string>
+    <string name="str_rate">Rate</string>
 
 
 </resources>

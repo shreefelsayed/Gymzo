@@ -1,4 +1,4 @@
-package com.armjld.gymzo.gym;
+package com.armjld.gymzo.data;
 
 public class gymData {
 

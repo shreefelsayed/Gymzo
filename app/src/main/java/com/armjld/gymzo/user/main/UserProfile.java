@@ -1,31 +1,20 @@
 package com.armjld.gymzo.user.main;
 
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.armjld.gymzo.R;
-import com.armjld.gymzo.login.UserInFormation;
-import com.google.zxing.WriterException;
+import com.armjld.gymzo.data.UserInFormation;
 import com.squareup.picasso.Picasso;
-
-import androidmads.library.qrgenearator.QRGContents;
-import androidmads.library.qrgenearator.QRGEncoder;
 
 public class UserProfile extends Fragment {
 

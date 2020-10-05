@@ -1,8 +1,8 @@
-package com.armjld.gymzo.user;
+package com.armjld.gymzo.datebase;
 
 import androidx.annotation.NonNull;
 
-import com.armjld.gymzo.login.UserInFormation;
+import com.armjld.gymzo.data.UserInFormation;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -10,7 +10,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class FavoritesManager {
 

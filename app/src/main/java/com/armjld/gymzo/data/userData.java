@@ -1,4 +1,4 @@
-package com.armjld.gymzo.login;
+package com.armjld.gymzo.data;
 
 public class userData {
     

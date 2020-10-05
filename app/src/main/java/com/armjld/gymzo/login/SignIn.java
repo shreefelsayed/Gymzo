@@ -1,7 +1,6 @@
 package com.armjld.gymzo.login;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.armjld.gymzo.language.BaseActivity;
-import com.armjld.gymzo.language.LocaleManager;
 import com.armjld.gymzo.R;
 import com.armjld.gymzo.SignUp;
 import com.facebook.AccessToken;
@@ -49,7 +47,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Objects;
 
 import at.markushi.ui.CircleButton;
@@ -202,7 +199,7 @@ public class SignIn extends BaseActivity {
 
         mAuth.signInWithEmailAndPassword(memail, mpass).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                com.armjld.gymzo.login.LoginManager _lgnMn = new com.armjld.gymzo.login.LoginManager();
+                com.armjld.gymzo.datebase.LoginManager _lgnMn = new com.armjld.gymzo.datebase.LoginManager();
                 _lgnMn.setMyInfo(SignIn.this);
             } else {
                 Toast.makeText(getApplicationContext(), R.string.str_wrong_pass, Toast.LENGTH_LONG).show();
@@ -401,7 +398,7 @@ public class SignIn extends BaseActivity {
     }
 
     private void letsGo() {
-        com.armjld.gymzo.login.LoginManager _lgnMn = new com.armjld.gymzo.login.LoginManager();
+        com.armjld.gymzo.datebase.LoginManager _lgnMn = new com.armjld.gymzo.datebase.LoginManager();
         _lgnMn.setMyInfo(SignIn.this);
     }
 

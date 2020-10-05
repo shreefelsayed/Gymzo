@@ -1,7 +1,6 @@
 package com.armjld.gymzo.user.main;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.armjld.gymzo.R;
-import com.armjld.gymzo.gym.gymData;
-import com.armjld.gymzo.gymsAdapter;
+import com.armjld.gymzo.data.gymData;
+import com.armjld.gymzo.adapters.gymsAdapter;
 import com.armjld.gymzo.language.BaseActivity;
-import com.armjld.gymzo.user.FavoritesManager;
+import com.armjld.gymzo.datebase.FavoritesManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

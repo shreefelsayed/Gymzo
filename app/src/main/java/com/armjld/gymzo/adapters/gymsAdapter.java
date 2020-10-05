@@ -1,4 +1,4 @@
-package com.armjld.gymzo;
+package com.armjld.gymzo.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,8 +14,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armjld.gymzo.gym.gymData;
-import com.armjld.gymzo.user.FavoritesManager;
+import com.armjld.gymzo.R;
+import com.armjld.gymzo.data.gymData;
+import com.armjld.gymzo.datebase.FavoritesManager;
 import com.armjld.gymzo.user.main.GymProfile;
 import com.squareup.picasso.Picasso;
 

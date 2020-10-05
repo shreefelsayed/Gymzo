@@ -34,8 +34,8 @@ import android.widget.Toast;
 
 import com.armjld.gymzo.R;
 import com.armjld.gymzo.gym.GymsArea;
-import com.armjld.gymzo.gym.gymData;
-import com.armjld.gymzo.login.UserInFormation;
+import com.armjld.gymzo.data.gymData;
+import com.armjld.gymzo.data.UserInFormation;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;

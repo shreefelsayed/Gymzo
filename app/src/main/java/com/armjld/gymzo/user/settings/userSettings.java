@@ -12,15 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.armjld.gymzo.R;
 import com.armjld.gymzo.firstrun.ChooseLanguage;
-import com.armjld.gymzo.login.LoginManager;
-import com.armjld.gymzo.login.UserInFormation;
+import com.armjld.gymzo.datebase.LoginManager;
+import com.armjld.gymzo.data.UserInFormation;
 import com.google.android.material.slider.Slider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

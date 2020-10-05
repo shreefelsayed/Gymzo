@@ -1,4 +1,4 @@
-package com.armjld.gymzo;
+package com.armjld.gymzo.adapters;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,7 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.armjld.gymzo.gym.gymData;
+import com.armjld.gymzo.R;
+import com.armjld.gymzo.data.RatingData;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

@@ -18,9 +18,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.armjld.gymzo.R;
 import com.armjld.gymzo.gym.GymsArea;
-import com.armjld.gymzo.gymsAdapter;
-import com.armjld.gymzo.language.Gymzo;
-import com.armjld.gymzo.login.UserInFormation;
+import com.armjld.gymzo.adapters.gymsAdapter;
+import com.armjld.gymzo.data.UserInFormation;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

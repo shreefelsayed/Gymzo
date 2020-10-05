@@ -1,4 +1,6 @@
-package com.armjld.gymzo.login;
+package com.armjld.gymzo.data;
+
+import java.util.ArrayList;
 
 public class UserInFormation {
 
@@ -17,6 +19,16 @@ public class UserInFormation {
     private static String birthdate = "";
     private static String gymdistance = "10";
     private static String recivenoti = "true";
+
+    public static ArrayList<String> getClasses() {
+        return classes;
+    }
+
+    public static void setClasses(ArrayList<String> classes) {
+        UserInFormation.classes = classes;
+    }
+
+    private static ArrayList<String> classes = new ArrayList<>();
 
 
 
@@ -160,5 +172,6 @@ public class UserInFormation {
         setBirthdate("");
         setGender("");
         setGymdistance("20");
+        classes.clear();
     }
 }

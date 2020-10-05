@@ -1,6 +1,5 @@
 package com.armjld.gymzo;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,7 +8,7 @@ import android.widget.Toast;
 
 import com.armjld.gymzo.firstrun.ChooseLanguage;
 import com.armjld.gymzo.language.BaseActivity;
-import com.armjld.gymzo.login.LoginManager;
+import com.armjld.gymzo.datebase.LoginManager;
 import com.armjld.gymzo.login.SignIn;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
