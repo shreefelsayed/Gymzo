@@ -55,8 +55,8 @@ public class LoginManager {
                         UserInFormation.setGymdistance(Objects.requireNonNull(snapshot.child("gymdistance").getValue()).toString());
                     }
 
-                    if(snapshot.child("birthdate").exists()) {
-                        UserInFormation.setBirthdate(Objects.requireNonNull(snapshot.child("birthdate").getValue()).toString());
+                    if(snapshot.child("age").exists()) {
+                        UserInFormation.setAge(Objects.requireNonNull(snapshot.child("age").getValue()).toString());
                     }
 
                     if(snapshot.child("gender").exists()) {
@@ -73,6 +73,12 @@ public class LoginManager {
                         }
                         RecentClassesManager recentClassesManager = new RecentClassesManager();
                         recentClassesManager.getClasses();
+                    }
+
+                    if(snapshot.child("ratedgyms").exists()) {
+                        for(DataSnapshot ds : snapshot.child("ratedgyms").getChildren()) {
+                            UserInFormation.getRates().add(ds.getValue().toString());
+                        }
                     }
 
                     if(snapshot.child("favorites").exists()) {

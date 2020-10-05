@@ -119,8 +119,8 @@ public class userInfoSettings extends BaseActivity {
             uDatabase.child(UserInFormation.getId()).child("lastnaame").setValue(strLastname);
             UserInFormation.setLastname(strLastname);
 
-            uDatabase.child(UserInFormation.getId()).child("birthdate").setValue(strBirthdate);
-            UserInFormation.setBirthdate(strBirthdate);
+            uDatabase.child(UserInFormation.getId()).child("age").setValue(strBirthdate);
+            UserInFormation.setAge(strBirthdate);
 
             uDatabase.child(UserInFormation.getId()).child("gender").setValue(strGender);
             UserInFormation.setGender(strGender);
@@ -143,7 +143,7 @@ public class userInfoSettings extends BaseActivity {
         txtLastName.setText(UserInFormation.getLastname());
         Picasso.get().load(Uri.parse(UserInFormation.getUserURL())).into(UserImage);
         txtGender.setText(UserInFormation.getGender());
-        txtBirthday.setText(UserInFormation.getBirthdate());
+        txtBirthday.setText(UserInFormation.getAge());
     }
 
     @Override

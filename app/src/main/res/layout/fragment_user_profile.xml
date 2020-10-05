@@ -92,7 +92,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/txtEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your History is Empty"

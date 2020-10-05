@@ -15,6 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 public class RatingManager {
 
@@ -28,19 +29,22 @@ public class RatingManager {
     int rate1, rate2, rate3, rate4, rate5;
 
     public void setComment(String gymID, int Rating, String comment, String classid) {
-        RatingData ratingData = new RatingData(comment, UserInFormation.getFirstname(), UserInFormation.getId(), datee, String.valueOf(Rating), UserInFormation.getUserURL(), classid);
-
         String commentID = gDatabase.child("comments").push().getKey();
         assert commentID != null;
 
+        if(!comment.isEmpty()) {
+            RatingData ratingData = new RatingData(comment, UserInFormation.getFirstname(), UserInFormation.getId(), datee, String.valueOf(Rating), UserInFormation.getUserURL(), classid);
+            gDatabase.child(gymID).child("comments").child(commentID).setValue(ratingData);
+        }
+
         cDatabase.child(classid).child("israted").setValue("true");
-        cDatabase.child(classid).child("ratedid").setValue(commentID);
-        gDatabase.child("comments").child(commentID).setValue(ratingData);
+        cDatabase.child(classid).child("rateid").setValue(commentID);
         uDatabase.child("ratedgyms").child(commentID).setValue(gymID);
 
         setRatingForGym(gymID, Rating);
-
+        UserInFormation.getRates().add(gymID);
     }
+
     public void setRatingForGym(String gymID, int Rating) {
         rate1 = 0;
         rate2 = 0;
@@ -48,7 +52,7 @@ public class RatingManager {
         rate4 = 0;
         rate5 = 0;
 
-        gDatabase.child(gymID).child("ratings").addListenerForSingleValueEvent(new ValueEventListener() {
+        gDatabase.child(gymID).child("rating").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 switch (Rating)  {
@@ -56,10 +60,8 @@ public class RatingManager {
                         if(snapshot.child("one").exists()) {
                             int _rate1 = Integer.parseInt(snapshot.child("one").getValue().toString());
                             gDatabase.child(gymID).child("rating").child("one").setValue(_rate1+1);
-                            rate1 = _rate1 +1;
                         } else {
                             gDatabase.child(gymID).child("rating").child("one").setValue(1);
-                            rate1 = 1;
                         }
                         break;
                     }
@@ -68,10 +70,8 @@ public class RatingManager {
                         if(snapshot.child("two").exists()) {
                             int _rate2 = Integer.parseInt(snapshot.child("two").getValue().toString());
                             gDatabase.child(gymID).child("rating").child("two").setValue(_rate2+1);
-                            rate2 = _rate2+1;
                         } else {
                             gDatabase.child(gymID).child("rating").child("two").setValue(1);
-                            rate2 = 1;
                         }
                         break;
                     }
@@ -80,10 +80,8 @@ public class RatingManager {
                         if(snapshot.child("three").exists()) {
                             int _rate3 = Integer.parseInt(snapshot.child("three").getValue().toString());
                             gDatabase.child(gymID).child("rating").child("three").setValue(_rate3+1);
-                            rate3 = _rate3 + 1;
                         } else {
                             gDatabase.child(gymID).child("rating").child("three").setValue(1);
-                            rate3 = 1;
                         }
                         break;
                     }
@@ -92,31 +90,58 @@ public class RatingManager {
                         if(snapshot.child("four").exists()) {
                             int _rate4 = Integer.parseInt(snapshot.child("four").getValue().toString());
                             gDatabase.child(gymID).child("rating").child("four").setValue(_rate4+1);
-                            rate4 = _rate4 +1;
                         } else {
                             gDatabase.child(gymID).child("rating").child("four").setValue(1);
-                            rate4 = 1;
                         }
                         break;
                     }
 
                     case 5 : {
                         if(snapshot.child("five").exists()) {
-                            int _rate5 = Integer.parseInt(snapshot.child("five").getValue().toString());
+                            int _rate5 = Integer.parseInt(Objects.requireNonNull(snapshot.child("five").getValue()).toString());
                             gDatabase.child(gymID).child("rating").child("five").setValue(_rate5+1);
-                            rate5 = _rate5+1;
                         } else {
                             gDatabase.child(gymID).child("rating").child("five").setValue(1);
-                            rate5 = 1;
                         }
                         break;
                     }
                 }
 
-                int finalRate = calculateRating(String.valueOf(rate1), String.valueOf(rate2), String.valueOf(rate3), String.valueOf(rate4), String.valueOf(rate5));
-                gDatabase.child(gymID).child("rate").setValue(String.valueOf(finalRate));
+                setGymRatings(gymID);
 
-                Log.i("Rating System", "Successsfully Added Ratitng to " + gymID + " Rating : " + Rating);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
+    }
+
+    public void setGymRatings(String gId) {
+        gDatabase.child(gId).child("rating").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String one = "0";
+                String two = "0";
+                String three = "0";
+                String four = "0";
+                String five = "0";
+                if(snapshot.child("one").exists()) {
+                    one = snapshot.child("one").getValue().toString();
+                }
+                if(snapshot.child("two").exists()) {
+                    two = snapshot.child("two").getValue().toString();
+                }
+                if(snapshot.child("three").exists()) {
+                    three = snapshot.child("three").getValue().toString();
+                }
+                if(snapshot.child("four").exists()) {
+                    four = snapshot.child("four").getValue().toString();
+                }
+                if(snapshot.child("five").exists()) {
+                    five = snapshot.child("five").getValue().toString();
+                }
+
+                gDatabase.child(gId).child("rate").setValue(String.valueOf(calculateRating(one,two,three,four,five)));
             }
 
             @Override

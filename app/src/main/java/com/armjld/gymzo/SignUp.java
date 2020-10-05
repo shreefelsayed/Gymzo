@@ -30,6 +30,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -71,6 +72,7 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import at.markushi.ui.CircleButton;
+import ezy.ui.view.NumberStepper;
 
 public class SignUp extends BaseActivity {
 
@@ -87,6 +89,9 @@ public class SignUp extends BaseActivity {
 
     EditText txtFirstName, txtLastName, txtEmail, txtPass1, txtPass2, txtPhone;
     TextInputLayout tlFirstName, tlLastName, tlPass1, tlPass2, tlEmail, tlPhone;
+    CircleButton btnMale, btnFemale;
+    NumberStepper nsAge,nsWeight,nsHight;
+    NumberPicker nsLevel;
     private ImageView imgSetPP;
 
     OtpView txtCode;
@@ -104,16 +109,19 @@ public class SignUp extends BaseActivity {
     private Bitmap bitmap;
     private FirebaseAuth mAuth;
     private DatabaseReference uDatabase;
-    CircleButton btnMale, btnFemale;
+
 
     private static final int READ_EXTERNAL_STORAGE_CODE = 101;
     int TAKE_IMAGE_CODE = 10001;
     String phoneNumb;
 
-    LottieAnimationView animationView;
+    LottieAnimationView animationView, lottieAnimationView2;
     String gender = "male";
-    TextView txtGenderName, txtGenderAge;
-    Button btnNext0, btnNext1;
+    TextView txtGenderName,txtGenderName2;
+    Button btnNext0, btnNext1, btnNext2;
+
+    String strWeight, strAge, strLevel, strHight;
+    //@SuppressLint("ResourceType") final String[] levels = getResources().getStringArray(R.array.userlevels);
 
 
     @Override
@@ -150,25 +158,32 @@ public class SignUp extends BaseActivity {
         tlPhone = findViewById(R.id.tlPhone);
         btnNext0 = findViewById(R.id.btnNext0);
 
-        txtCode = findViewById(R.id.txtCode);
-
-        viewFlipper.setDisplayedChild(0);
-
-        Picasso.get().load(Uri.parse(defultPP)).into(imgSetPP);
-        txtEmail.setText(newEmail);
-        txtLastName.setText(newLastName);
-        txtFirstName.setText(newFirstName);
-
         animationView = findViewById(R.id.lottieAnimationView);
         btnMale = findViewById(R.id.btnMale);
         btnFemale = findViewById(R.id.btnFemale);
         txtGenderName = findViewById(R.id.txtGenderName);
-        txtGenderAge = findViewById(R.id.txtGenderAge);
         btnNext1 = findViewById(R.id.btnNext1);
 
+        nsAge = findViewById(R.id.nsAge);
+        nsWeight = findViewById(R.id.nsWeight);
+        nsHight = findViewById(R.id.nsHight);
+        nsLevel = findViewById(R.id.nsLevel);
+        lottieAnimationView2 = findViewById(R.id.lottieAnimationView2);
+        txtGenderName2 = findViewById(R.id.txtGenderName2);
+        btnNext2 = findViewById(R.id.btnNext2);
+
+        //Initializing a new string array with elements
+
+        /*nsLevel.setMinValue(0);
+        nsLevel.setMaxValue(levels.length-1);
+        nsLevel.setWrapSelectorWheel(true);
+        nsLevel.setDisplayedValues(levels);*/
+
+        txtCode = findViewById(R.id.txtCode);
 
         btnNext0.setOnClickListener(v-> showNext());
         btnNext1.setOnClickListener(v-> showNext());
+        btnNext2.setOnClickListener(v-> showNext());
 
         btnMale.setOnClickListener(v-> {
             if(!gender.equals("male")) {
@@ -176,6 +191,7 @@ public class SignUp extends BaseActivity {
                 btnMale.setColor(R.color.colorAccentLight);
                 btnFemale.setColor(Color.parseColor("#ffffff"));
                 animationView.setAnimation(R.raw.male);
+                lottieAnimationView2.setAnimation(R.raw.male);
                 startCheckAnimation();
             }
         });
@@ -186,6 +202,7 @@ public class SignUp extends BaseActivity {
                 btnFemale.setColor(R.color.colorAccentLight);
                 btnMale.setColor(Color.parseColor("#ffffff"));
                 animationView.setAnimation(R.raw.female);
+                lottieAnimationView2.setAnimation(R.raw.female);
                 startCheckAnimation();
             }
         });
@@ -210,6 +227,13 @@ public class SignUp extends BaseActivity {
             }
         });
 
+        Picasso.get().load(Uri.parse(defultPP)).into(imgSetPP);
+        txtEmail.setText(newEmail);
+        txtLastName.setText(newLastName);
+        txtFirstName.setText(newFirstName);
+
+        viewFlipper.setDisplayedChild(0);
+
     }
 
     private void showPrev() {
@@ -221,31 +245,36 @@ public class SignUp extends BaseActivity {
             }
 
             case 1 :
-            case 2 : {
+            case 2 :
+            case 3 : {
                 viewFlipper.showPrevious();
                 break;
             }
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void showNext() {
         hideKeyboard(this);
         switch (viewFlipper.getDisplayedChild()) {
-            case 0: {
+            case 0: { // info
                 if(!checkText()) {
                     return;
                 }
                 viewFlipper.showNext();
                 startCheckAnimation();
                 txtGenderName.setText(txtFirstName.getText().toString() + " " + txtLastName.getText().toString());
+                txtGenderName2.setText(txtFirstName.getText().toString() + " " + txtLastName.getText().toString());
                 break;
             }
 
-            case 1 : {
-                checkForCode();
+            case 1 : { // gender
+                startCheckAnimation2();
+                viewFlipper.showNext();
+                break;
             }
-            case 2: {
-
+            case 2: { // more info
+                checkForCode();
                 break;
             }
         }
@@ -319,7 +348,7 @@ public class SignUp extends BaseActivity {
         newFirstName = txtFirstName.getText().toString();
         newLastName = txtLastName.getText().toString();
 
-        mdialog.setMessage(String.valueOf(R.string.str_check_phone));
+        mdialog.setMessage(getResources().getString(R.string.str_check_phone));
         mdialog.show();
 
         if(phone.length() == 10) {
@@ -332,12 +361,12 @@ public class SignUp extends BaseActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
-                    Log.i(TAG ,"Phone Number is Already Exist For uID : " + snapshot.getValue().toString());
+                    Log.i(TAG ,"Phone Number is Already Exist For uID : " + Objects.requireNonNull(snapshot.getValue()).toString());
                     mdialog.dismiss();
                     Toast.makeText(SignUp.this, R.string.str_phone_exist, Toast.LENGTH_SHORT).show();
                 } else {
                     Log.i(TAG ,"Phone Number isn't Exist, Let's Continue");
-                    mdialog.setMessage(String.valueOf(R.string.str_sending_code));
+                    mdialog.setMessage(getResources().getString(R.string.str_sending_code));
                     mCallBack();
                     sendCode(phoneNumb);
                 }
@@ -364,7 +393,7 @@ public class SignUp extends BaseActivity {
 
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
         Log.i(TAG, "verifyPhoneNumberWithCode : " + verificationId);
-        mdialog.setMessage(String.valueOf(R.string.str_checking_code));
+        mdialog.setMessage(getResources().getString(R.string.str_checking_code));
         mdialog.show();
         if(verificationId.equals("")) {
             mdialog.dismiss();
@@ -474,7 +503,7 @@ public class SignUp extends BaseActivity {
                 mdialog.dismiss();
                 mVerificationId = verificationId;
                 Log.i(TAG, "Code has been sent to : " + phoneNumb + " and Verf id has been set : " + mVerificationId);
-                viewFlipper.setDisplayedChild(2);
+                viewFlipper.setDisplayedChild(3);
             }
         };
     }
@@ -485,7 +514,13 @@ public class SignUp extends BaseActivity {
         String mpass = txtPass1.getText().toString().trim();
         String mPhone = "0"+phoneNumb;
 
-        userData uDate = new userData(id, newFirstName, newLastName, mpass, memail, mPhone, acDate, "0", defultPP, "", "0");
+        strWeight = String.valueOf(nsWeight.getValue());
+        strAge = String.valueOf(nsAge.getValue());
+        strHight = String.valueOf(nsHight.getValue());
+        //strLevel = nsLevel.getValue();
+
+
+        userData uDate = new userData(id, newFirstName, newLastName, mpass, memail, mPhone, acDate, "0", defultPP, "", "0",strAge, strWeight, strHight, "");
         uDatabase.child(id).setValue(uDate);
 
         uDatabase.child(id).child("gender").setValue(gender);
@@ -751,6 +786,19 @@ public class SignUp extends BaseActivity {
             animator.start();
         } else {
             animationView.setProgress(0f);
+        }
+    }
+
+    private void startCheckAnimation2() {
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(5000);
+        animator.addUpdateListener(valueAnimator -> {
+            lottieAnimationView2.setProgress((Float) valueAnimator.getAnimatedValue());
+        });
+
+        if (lottieAnimationView2.getProgress() == 0f) {
+            animator.start();
+        } else {
+            lottieAnimationView2.setProgress(0f);
         }
     }
 }

@@ -7,15 +7,16 @@
     android:textAlignment="center"
     tools:context=".SignUp">
 
+
     <include
         android:id="@+id/toolbar_home"
         layout="@layout/toolbar_white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageView
         android:id="@+id/btnBack"
@@ -130,6 +131,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:nextFocusDown="@+id/txtLastName"
                             android:textColor="#000000"
                             android:textSize="18sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -314,6 +316,7 @@
                 android:layout_weight="1">
 
                 <ImageView
+                    android:id="@+id/imageView3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="fitXY"
@@ -329,7 +332,7 @@
                     android:id="@+id/lottieAnimationView"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
-                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -344,20 +347,11 @@
                     android:text="Name"
                     android:textColor="@color/colorPrimary"
                     android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
-
-                <TextView
-                    android:id="@+id/txtGenderAge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Age"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtGenderName" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -464,6 +458,190 @@
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/moredetails"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/ic_dragon_scales" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieAnimationView2"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/male" />
+
+                <TextView
+                    android:id="@+id/txtGenderName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/str_age"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="24sp" />
+
+                    <ezy.ui.view.NumberStepper
+                        android:id="@+id/nsAge"
+                        style="@style/NumberStepper"
+                        android:layout_width="150dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        app:nsMaxValue="80"
+                        app:nsMinValue="13"
+                        app:nsStep="1"
+                        app:nsValue="21" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/str_weight"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="24sp" />
+
+                    <ezy.ui.view.NumberStepper
+                        android:id="@+id/nsWeight"
+                        style="@style/NumberStepper"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        app:nsMaxValue="300"
+                        app:nsMinValue="30"
+                        app:nsStep="1"
+                        app:nsValue="60" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/str_hight"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="24sp" />
+
+                    <ezy.ui.view.NumberStepper
+                        android:id="@+id/nsHight"
+                        style="@style/NumberStepper"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        app:nsMaxValue="220"
+                        app:nsMinValue="150"
+                        app:nsStep="1"
+                        app:nsValue="170" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center|start"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/str_level"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="24sp" />
+
+                    <NumberPicker
+                        android:id="@+id/nsLevel"
+                        style="@style/NumberStepper"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnNext2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/btn_defult"
+                    android:text="@string/str_next"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorAccent" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout

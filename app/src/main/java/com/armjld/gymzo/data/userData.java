@@ -13,10 +13,14 @@ public class userData {
     private String userURL ;
     private String supDate;
     private String remainClasses ;
+    private String age;
+    private String weight;
+    private String hight;
+    private String level;
 
     public userData(){ }
 
-    public userData(String id, String firstname, String lastname, String pass, String email, String uPhone, String userDate, String supType, String userURL, String supDate, String remainClasses) {
+    public userData(String id, String firstname, String lastname, String pass, String email, String uPhone, String userDate, String supType, String userURL, String supDate, String remainClasses, String age, String weight, String hight, String level) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -28,6 +32,42 @@ public class userData {
         this.userURL = userURL;
         this.supDate = supDate;
         this.remainClasses = remainClasses;
+        this.age = age;
+        this.weight = weight;
+        this.hight = hight;
+        this.level = level;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getHight() {
+        return hight;
+    }
+
+    public void setHight(String hight) {
+        this.hight = hight;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getId() {

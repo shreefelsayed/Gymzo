@@ -27,7 +27,7 @@ public class RecentClassesManager {
         ArrayList<String> classesIDs = UserInFormation.getClasses();
         DatabaseReference cDataabase = FirebaseDatabase.getInstance().getReference().child("classes");
         for(int i = 0; i < classesIDs.size(); i++) {
-            cDataabase.child(classesIDs.get(i)).addListenerForSingleValueEvent(new ValueEventListener() {
+            cDataabase.child(classesIDs.get(i)).limitToLast(30).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ClassData classData =  snapshot.getValue(ClassData.class);

@@ -106,6 +106,7 @@ public class GymProfile extends BaseActivity {
             btnExpand.setImageDrawable(getResources().getDrawable(R.drawable.ic_down));
         }
     }
+
     private void getRatings() {
         listComments.setAdapter(null);
         ArrayList<RatingData> rateList = new ArrayList<>();

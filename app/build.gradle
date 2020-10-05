@@ -71,6 +71,7 @@ dependencies {
     implementation 'com.github.markushi:circlebutton:1.1'
     implementation 'com.github.smarteist:autoimageslider:1.3.9'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.github.czy1121:numberstepper:1.2.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

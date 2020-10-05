@@ -28,6 +28,7 @@ public class UserProfile extends Fragment {
     TextView txtName, txtID,txtRemain,txtAllClasses;
     RecyclerView recyclerClasses;
     ClassesAdapter classesAdapter;
+    TextView txtEmpty;
 
     public UserProfile() { }
 
@@ -46,7 +47,11 @@ public class UserProfile extends Fragment {
         txtRemain= view.findViewById(R.id.txtRemain);
         txtAllClasses= view.findViewById(R.id.txtAllClasses);
         recyclerClasses = view.findViewById(R.id.recyclerClasses);
+        txtEmpty = view.findViewById(R.id.txtEmpty);
 
+        if(RecentClassesManager.getList().size() != 0) {
+            txtEmpty.setVisibility(View.GONE);
+        }
         recyclerClasses.setHasFixedSize(true);
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
         layoutManager.setReverseLayout(true);

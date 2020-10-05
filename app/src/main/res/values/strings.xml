@@ -5,6 +5,11 @@
     <string name="fb_login_protocol_scheme" translatable="false">fb375272856850647</string>
     <string name="hello_blank_fragment" translatable="false">Heuy</string>
 
+    <string-array name="userlevels">
+        <item>Novice</item>
+        <item>Intermediate</item>
+        <item>Expert</item>
+    </string-array>
     // -------- Login -------------------- //
     <string name="str_login">Login</string>
     <string name="str_email">Email</string>
@@ -81,6 +86,10 @@
     <string name="str_km">KM.</string>
     <string name="str_max_distance">Maximum Gym Distance</string>
     <string name="str_rate">Rate</string>
+    <string name="str_age">Age</string>
+    <string name="str_weight">Weight</string>
+    <string name="str_hight">Height</string>
+    <string name="str_level">Level</string>
 
 
 </resources>

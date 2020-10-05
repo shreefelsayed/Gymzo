@@ -16,9 +16,21 @@ public class UserInFormation {
     private static String userURL = "";
     private static String supDate ="";
     private static String remainClasses = "0";
-    private static String birthdate = "";
+    private static String age = "";
     private static String gymdistance = "10";
     private static String recivenoti = "true";
+    private static ArrayList<String> classes = new ArrayList<>();
+
+    public static ArrayList<String> getRates() {
+        return rates;
+    }
+
+    public static void setRates(ArrayList<String> rates) {
+        UserInFormation.rates = rates;
+    }
+
+    private static ArrayList<String> rates = new ArrayList<>();
+
 
     public static ArrayList<String> getClasses() {
         return classes;
@@ -28,7 +40,6 @@ public class UserInFormation {
         UserInFormation.classes = classes;
     }
 
-    private static ArrayList<String> classes = new ArrayList<>();
 
 
 
@@ -49,12 +60,12 @@ public class UserInFormation {
         UserInFormation.recivenoti = recivenoti;
     }
 
-    public static String getBirthdate() {
-        return birthdate;
+    public static String getAge() {
+        return age;
     }
 
-    public static void setBirthdate(String birthdate) {
-        UserInFormation.birthdate = birthdate;
+    public static void setAge(String age) {
+        UserInFormation.age = age;
     }
 
     public static String getGender() {
@@ -169,7 +180,7 @@ public class UserInFormation {
         setLastname("");
         setUserURL("");
         setRemainClasses("0");
-        setBirthdate("");
+        setAge("");
         setGender("");
         setGymdistance("20");
         classes.clear();

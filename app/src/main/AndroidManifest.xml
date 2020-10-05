@@ -15,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="LockedOrientationActivity">
-        <activity android:name=".user.main.UserFavorites"></activity>
+
+        <activity
+            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+            tools:replace="android:launchMode"
+            android:launchMode="standard" />
+
+        <activity android:name=".user.main.UserFavorites" />
         <activity android:name=".user.main.GymProfile" />
         <activity android:name=".user.main.UserQR" />
         <activity android:name=".firstrun.ChooseLanguage" />
@@ -45,7 +51,6 @@
         <activity android:name=".StartUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
