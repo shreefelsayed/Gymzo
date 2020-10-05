@@ -98,13 +98,13 @@
         android:text="Your History is Empty"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerGyms"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerClasses"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/recyclerGyms"
+        app:layout_constraintStart_toStartOf="@+id/recyclerClasses"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerGyms"
+        android:id="@+id/recyclerClasses"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

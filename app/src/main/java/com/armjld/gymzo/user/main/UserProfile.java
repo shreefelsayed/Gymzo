@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.armjld.gymzo.R;
+import com.armjld.gymzo.adapters.ClassesAdapter;
 import com.armjld.gymzo.data.UserInFormation;
+import com.armjld.gymzo.datebase.ClassesManager;
+import com.armjld.gymzo.datebase.RecentClassesManager;
 import com.squareup.picasso.Picasso;
 
 public class UserProfile extends Fragment {
@@ -21,6 +26,8 @@ public class UserProfile extends Fragment {
     private String TAG = "User Profile";
     private ImageView btnQR, imgProfile;
     TextView txtName, txtID,txtRemain,txtAllClasses;
+    RecyclerView recyclerClasses;
+    ClassesAdapter classesAdapter;
 
     public UserProfile() { }
 
@@ -38,6 +45,16 @@ public class UserProfile extends Fragment {
         txtID= view.findViewById(R.id.txtID);
         txtRemain= view.findViewById(R.id.txtRemain);
         txtAllClasses= view.findViewById(R.id.txtAllClasses);
+        recyclerClasses = view.findViewById(R.id.recyclerClasses);
+
+        recyclerClasses.setHasFixedSize(true);
+        LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recyclerClasses.setLayoutManager(layoutManager);
+        recyclerClasses.setAdapter(null);
+        classesAdapter = new ClassesAdapter(getActivity(), RecentClassesManager.getList());
+        recyclerClasses.setAdapter(classesAdapter);
 
         btnQR.setOnClickListener(v-> {
             startActivity(new Intent(getActivity(), UserQR.class));

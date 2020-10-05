@@ -173,5 +173,6 @@ public class UserInFormation {
         setGender("");
         setGymdistance("20");
         classes.clear();
+        classes.trimToSize();
     }
 }

@@ -33,7 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.armjld.gymzo.R;
-import com.armjld.gymzo.gym.GymsArea;
+import com.armjld.gymzo.datebase.GymsManager;
 import com.armjld.gymzo.data.gymData;
 import com.armjld.gymzo.data.UserInFormation;
 import com.google.android.gms.common.ConnectionResult;
@@ -127,8 +127,8 @@ public class GymsMap extends FragmentActivity implements OnMapReadyCallback, Vie
         }
 
 
-        for(int i = 0; i < GymsArea.gymsList.size(); i++) {
-            gymData gymData = GymsArea.gymsList.get(i);
+        for(int i = 0; i < GymsManager.gymsList.size(); i++) {
+            gymData gymData = GymsManager.gymsList.get(i);
             String gymType = gymData.getType();
             double newLat = Double.parseDouble(gymData.getLat());
             double newLong = Double.parseDouble(gymData.get_long());
@@ -200,7 +200,7 @@ public class GymsMap extends FragmentActivity implements OnMapReadyCallback, Vie
     @Override
     public boolean onMarkerClick(Marker marker) {
         String gID = (String) marker.getTag();
-        gymData gData = GymsArea.gymsList.stream().filter(x -> x.getGid().equals(gID)).findFirst().get();
+        gymData gData = GymsManager.gymsList.stream().filter(x -> x.getGid().equals(gID)).findFirst().get();
         setCardDate(gData);
         gymsCard.setVisibility(View.VISIBLE);
         return true;

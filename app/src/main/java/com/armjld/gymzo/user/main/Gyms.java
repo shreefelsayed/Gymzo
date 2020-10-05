@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.armjld.gymzo.R;
-import com.armjld.gymzo.gym.GymsArea;
+import com.armjld.gymzo.datebase.GymsManager;
 import com.armjld.gymzo.adapters.gymsAdapter;
 import com.armjld.gymzo.data.UserInFormation;
 import com.google.firebase.database.DatabaseReference;
@@ -76,7 +76,7 @@ public class Gyms extends Fragment {
         refresh.setOnRefreshListener(() -> {
             refresh.setRefreshing(true);
             recyclerGym.setAdapter(null);
-            GymsArea.getGyms(getActivity());
+            GymsManager.getGyms(getActivity());
             refresh.setRefreshing(false);
         });
 
@@ -91,9 +91,9 @@ public class Gyms extends Fragment {
     }
 
     public static void pobulateRecycler(Context mContext) {
-        if(GymsArea.gymsList.size() > 0) {
+        if(GymsManager.gymsList.size() > 0) {
             txtNone.setVisibility(View.GONE);
-            gAdapter = new gymsAdapter(mContext, GymsArea.gymsList);
+            gAdapter = new gymsAdapter(mContext, GymsManager.gymsList);
             recyclerGym.setAdapter(gAdapter);
         } else {
             txtNone.setVisibility(View.VISIBLE);

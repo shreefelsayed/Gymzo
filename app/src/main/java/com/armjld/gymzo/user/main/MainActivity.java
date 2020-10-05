@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.armjld.gymzo.R;
 import com.armjld.gymzo.StartUp;
-import com.armjld.gymzo.gym.GymsArea;
+import com.armjld.gymzo.datebase.GymsManager;
 import com.armjld.gymzo.language.BaseActivity;
 import com.armjld.gymzo.datebase.LoginManager;
 import com.armjld.gymzo.user.settings.userSettings;
@@ -179,7 +179,7 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.Connec
             final Status status = result1.getStatus();
             switch (status.getStatusCode()) {
                 case LocationSettingsStatusCodes.SUCCESS:
-                    GymsArea.fetchLocation(this);
+                    GymsManager.fetchLocation(this);
                     break;
                 case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
                     try {
@@ -227,7 +227,7 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.Connec
     public void checkLocationPermission(Context mContext){
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) mContext, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
-            GymsArea.fetchLocation(this);
+            GymsManager.fetchLocation(this);
         }
     }
 

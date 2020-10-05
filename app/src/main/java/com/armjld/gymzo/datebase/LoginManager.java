@@ -28,6 +28,7 @@ public class LoginManager {
     public static boolean dataset = false;
 
     public void setMyInfo(Context mContext) {
+        UserInFormation.clearUser();
         uDatabase.child(Objects.requireNonNull(mAuth.getCurrentUser()).getUid()).keepSynced(true);
         uDatabase.child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -70,6 +71,8 @@ public class LoginManager {
                         for(DataSnapshot ds : snapshot.child("classes").getChildren()) {
                             UserInFormation.getClasses().add(ds.getValue().toString());
                         }
+                        RecentClassesManager recentClassesManager = new RecentClassesManager();
+                        recentClassesManager.getClasses();
                     }
 
                     if(snapshot.child("favorites").exists()) {

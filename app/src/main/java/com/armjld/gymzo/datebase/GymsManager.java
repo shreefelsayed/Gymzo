@@ -1,4 +1,4 @@
-package com.armjld.gymzo.gym;
+package com.armjld.gymzo.datebase;
 
 import android.Manifest;
 import android.content.Context;
@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class GymsArea implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class GymsManager implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     public static Location currentLocation;
     public static FusedLocationProviderClient fusedLocationProviderClient;
