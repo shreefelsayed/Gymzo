@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_gravity="start"
         android:gravity="start"
         android:orientation="vertical"
@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
-            android:layout_marginBottom="20dp"
             android:foregroundGravity="top"
             android:gravity="center"
             android:orientation="horizontal">
@@ -79,153 +78,175 @@
 
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_account_info_title"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp" />
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round_background"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnAccountInfo"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_account_info"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            app:icon="@drawable/ic_profile"
-            app:iconTint="@color/colorAccent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_account_info_title"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/btnChangePass"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_change_pass"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            app:icon="@drawable/ic_password"
-            app:iconTint="@color/colorAccent" />
+            <Button
+                android:id="@+id/btnAccountInfo"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_account_info"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_profile"
+                app:iconTint="@color/colorAccent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_app_setting"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp" />
+            <Button
+                android:id="@+id/btnChangePass"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_change_pass"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_password"
+                app:iconTint="@color/colorAccent" />
+        </LinearLayout>
 
-        <Switch
-            android:id="@+id/switchNoti"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/ic_notifications"
-            android:drawableTint="@color/colorAccent"
-            android:fontFamily="sans-serif-medium"
-            android:paddingStart="8dp"
-            android:text="@string/str_noti"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round_background"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:text="@string/str_max_distance"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_app_setting"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
 
-        <com.google.android.material.slider.Slider
-            android:id="@+id/distanceSlider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stepSize="1.0"
-            android:value="20.0"
-            android:valueFrom="1.0"
-            android:valueTo="100.0"
-            app:haloColor="@color/colorAccent"
-            app:labelBehavior="floating"
-            app:thumbColor="@color/colorAccent"
-            app:trackColorActive="@color/colorAccent" />
+            <Switch
+                android:id="@+id/switchNoti"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/ic_notifications"
+                android:drawableTint="@color/colorAccent"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="8dp"
+                android:text="@string/str_noti"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-        <TextView
-            android:id="@+id/txtDistance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:text="@string/str_max_distance"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btnLanguage"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_language"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            app:icon="@drawable/ic_globe"
-            app:iconTint="@color/colorAccent" />
+            <com.google.android.material.slider.Slider
+                android:id="@+id/distanceSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="1.0"
+                android:value="5.0"
+                android:valueFrom="1.0"
+                android:valueTo="20.0"
+                app:haloColor="@color/colorAccent"
+                app:labelBehavior="floating"
+                app:thumbColor="@color/colorAccent"
+                app:trackColorActive="@color/colorAccent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_help"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp" />
+            <TextView
+                android:id="@+id/txtDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
 
-        <Button
-            android:id="@+id/btnLanguage3"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_privacy_policy"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            app:icon="@drawable/ic_globe"
-            app:iconTint="@color/colorAccent" />
+            <Button
+                android:id="@+id/btnLanguage"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_language"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_globe"
+                app:iconTint="@color/colorAccent" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btnLanguage5"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_terms"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            app:icon="@drawable/ic_globe"
-            app:iconTint="@color/colorAccent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round_background"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnLanguage4"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/str_contact"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            app:icon="@drawable/ic_globe"
-            app:iconTint="@color/colorAccent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_help"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btnLanguage3"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_privacy_policy"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_globe"
+                app:iconTint="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/btnLanguage5"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_terms"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_globe"
+                app:iconTint="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/btnLanguage4"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_contact"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_globe"
+                app:iconTint="@color/colorAccent" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnLogout"
