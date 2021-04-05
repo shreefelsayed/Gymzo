@@ -45,6 +45,7 @@ public class GymProfile extends BaseActivity {
     DatabaseReference gymDatabase = FirebaseDatabase.getInstance().getReference().child("gyms");
     LinearLayout linerExpand;
     RecyclerView listComments;
+
     private ArrayList<String> mArraylistSectionLessons = new ArrayList<>();
     int comments = 0;
     TextView txtCommentsCount;

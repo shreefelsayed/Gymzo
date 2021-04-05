@@ -13,9 +13,11 @@ import java.util.Locale;
 public class LocaleManager {
     @Retention(RetentionPolicy.SOURCE)
     @StringDef({ ENGLISH, ARABIC })
+
     public @interface LocaleDef {
         String[] SUPPORTED_LOCALES = { ENGLISH, ARABIC };
     }
+
     public static final String ARABIC = "ar";
     public static final String ENGLISH = "en";
 
